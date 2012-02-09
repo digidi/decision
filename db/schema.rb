@@ -11,27 +11,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120207050310) do
+ActiveRecord::Schema.define(:version => 20120209045614) do
 
   create_table "criterions", :force => true do |t|
     t.string   "title"
     t.string   "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
+
+  create_table "criterions_tasks", :id => false, :force => true do |t|
+    t.integer "criterion_id"
+    t.integer "task_id"
+  end
+
+  add_index "criterions_tasks", ["criterion_id"], :name => "index_criterions_tasks_on_criterion_id"
+  add_index "criterions_tasks", ["task_id"], :name => "index_criterions_tasks_on_task_id"
 
   create_table "levels", :force => true do |t|
     t.integer  "criterion_id"
     t.string   "level"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "tasks", :force => true do |t|
     t.string   "title"
     t.string   "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

@@ -1,25 +1,26 @@
-<%= form_for(@criterion) do |f| %>
+<%= semantic_form_for @criterion do |f| %>
   <% if @criterion.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@criterion.errors.count, "error") %> prohibited this criterion from being saved:</h2>
-
       <ul>
       <% @criterion.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
+  <% end %>  
+
+  <%= f.inputs do %>
+      <%= f.input :title %>   
+      <%= f.input :body %>   
+      <%= f.input :tasks, :as => :check_boxes %>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_field :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.actions do %>
+     <%= f.action :submit, :as => :button %>
+     <%= f.action :cancel, :as => :link %>
+  <% end %>
+
 <% end %>
+
+

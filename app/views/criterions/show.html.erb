@@ -1,15 +1,20 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
-  <b>Title:</b>
+  <strong>Name:</strong>
   <%= @criterion.title %>
 </p>
 
+<ol>
+<% for level in @criterion.levels %>
+  <li>
+    <%= level.level %>
+  </li>
+<% end %>
+</ol>
+
 <p>
-  <b>Body:</b>
-  <%= @criterion.body %>
+  <%= link_to "Edit", edit_criterion_path(@criterion) %> |
+  <%= link_to "Destroy", @criterion, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", criterions_path %>
 </p>
-
-
-<%= link_to 'Edit', edit_criterion_path(@criterion) %> |
-<%= link_to 'Back', criterions_path %>
