@@ -1,4 +1,4 @@
-<%= semantic_form_for @criterion do |f| %>
+<%= semantic_nested_form_for @criterion do |f| %>
   <% if @criterion.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@criterion.errors.count, "error") %> prohibited this criterion from being saved:</h2>
@@ -11,10 +11,16 @@
   <% end %>  
 
   <%= f.inputs do %>
-      <%= f.input :title %>   
-      <%= f.input :body %>   
-      <%= f.input :tasks, :as => :check_boxes %>
+    <%= f.input :title %>   
+    <%= f.input :body %>   
+    <%= f.input :tasks, :as => :check_boxes %>
   <% end %>
+  
+  <%= f.fields_for :levels do |level_form| %>
+    <%= level_form.input :level %>
+    <%= level_form.link_to_remove "Remove this" %>
+  <% end %> 
+  <p><%= f.link_to_add "Add Level", :levels %></p>
 
   <%= f.actions do %>
      <%= f.action :submit, :as => :button %>
