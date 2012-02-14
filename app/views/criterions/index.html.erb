@@ -1,4 +1,3 @@
-<h1>Listing criterions</h1>
 
 <table>
   <tr>
@@ -14,7 +13,9 @@
   <tr>
     <td><%= criterion.title %></td>
     <td><%= criterion.body %></td>
-    <td><%= criterion.tasks %></td>
+    <td><% criterion.tasks.each do |task| %>
+      <%= task.title %>
+    <% end %></td>
     <td><%= link_to 'Show', criterion %></td>
     <td><%= link_to 'Edit', edit_criterion_path(criterion) %></td>
     <td><%= link_to 'Destroy', criterion, confirm: 'Are you sure?', method: :delete %></td>

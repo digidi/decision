@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Decision</title>
+  <title>Test</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="sitename">
+  <h1>
+    <%= link_to resource_path, resource_path %>
+  </h1>
+</div>
+
+<div id="navbar">
+ <div class="sf-menu clear">
+  <ul>
+      <%= render_navigation :context => :main_menu %>
+  </ul>
+ </div>
+</div>
+
+<div id="body" class="clear">
 
 <%= yield %>
 
+<br />
+
+<%= link_to 'New Task', new_task_path %>
+</div>
+
+<div id="footer">
+<p>&copy; 2012. <a href="http://www.google.com">Decision-making system</a></p>
+<div class="openteam">
+    <p><a href="http://openteam.ru/">OpenTeam</a></p>
+</div>		
+</div>
+
+
 </body>
 </html>
+
+

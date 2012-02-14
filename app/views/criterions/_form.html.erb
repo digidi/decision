@@ -15,7 +15,7 @@
     <%= f.input :body %>   
     <%= f.input :tasks, :as => :check_boxes %>
   <% end %>
-  
+   
   <%= f.fields_for :levels do |level_form| %>
     <%= level_form.input :level %>
     <%= level_form.link_to_remove "Remove this" %>

@@ -18,4 +18,5 @@ gem 'jquery-rails'
 gem 'inherited_resources'
 gem 'nested_form'
 gem 'rails'
+gem 'simple-navigation'
 
