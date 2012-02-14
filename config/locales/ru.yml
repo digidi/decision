@@ -1,0 +1,34 @@
+ru:
+  "Add Level": "Добавить значение"
+  "Performance criterion": "Характеристики критерия"
+  "Title": "Заголовок"
+  "Body": "Описание"
+  "Tasks": "Связаные задачи"
+  "Show": "Просмотреть"
+  "Edit": "Редактировать"
+  "Destroy": "Удалить"
+  "New Criterion": "Добавить критерий"
+  "New Task": "Добавить задачу"
+  "Are you sure?": "Вы уверенны?"
+  formtastic:
+    required: "обязательно для заполения"
+    actions:
+      create: "Создать"
+      update: "Сохранить"
+      reset: "Reset form"
+      cancel: "Отменить и вернуться назад"
+      dummie: "Launch!"
+    
+  activerecord:
+    attributes:
+      criterion:
+        title: "Заголовок"
+        body: "Описание"
+        tasks: "Связаные задачи"
+        level: "Значение"
+      task:
+        title: "Заголовок"
+        body: "Описание"
+
+  
+

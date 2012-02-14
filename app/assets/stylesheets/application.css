@@ -149,12 +149,40 @@ ul, ol {
 }
 li {
 	padding-bottom:5px;
+	list-style:none;
 }
 li ol, li ul {
 	font-size:1.0em;
 	margin-bottom:0;
 	padding-top:5px;
 }
+
+.string.input {
+	font-size:15px;
+	color:#555555;
+	font-weight:bold;
+}
+.string.input label
+{
+  display: block;
+}
+
+.text.input {
+  font-size:15px;
+	color:#555555;
+	font-weight:bold;
+}
+.text.input label
+{
+  display: block;
+}
+
+.text.input textarea {
+  width: 500px;
+  height: 120px;
+}
+
+
 
 
 /** wrapper **/
@@ -307,6 +335,7 @@ div#body {
 	border:1px solid #ddd;
 	border-bottom:none;
 	font-size:12px;
+	background: #FFFFFF;
 }
 
 /** content+sidebar styles **/
@@ -409,6 +438,7 @@ div#sidebar h4 {
 	display:block;
 }
 */
+
 /** footer **/
 div#footer {
 	background:#903838 url('footer-bg.png') no-repeat scroll left bottom;
@@ -447,3 +477,25 @@ div#footer a {
 .clear {
 	display: block;
 }
+
+fieldset legend{
+  color: #555555;
+  font-size: 15px;
+}
+
+.choice{
+  font-style: italic; 
+}
+.choice input{
+  margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+

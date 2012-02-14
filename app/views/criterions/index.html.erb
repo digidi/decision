@@ -1,9 +1,9 @@
 
 <table>
   <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th>tasks</th>
+    <th><%=t("Title")%></th>
+    <th><%=t("Body")%></th>
+    <th><%=t("Tasks")%></th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,9 +16,9 @@
     <td><% criterion.tasks.each do |task| %>
       <%= task.title %>
     <% end %></td>
-    <td><%= link_to 'Show', criterion %></td>
-    <td><%= link_to 'Edit', edit_criterion_path(criterion) %></td>
-    <td><%= link_to 'Destroy', criterion, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to t('Show'), criterion %></td>
+    <td><%= link_to t('Edit'), edit_criterion_path(criterion) %></td>
+    <td><%= link_to t('Destroy'), criterion, confirm: t('Are you sure?'), method: :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -28,4 +28,4 @@
 
 <br />
 
-<%= link_to 'New Criterion', new_criterion_path %>
+<%= link_to t('New Criterion'), new_criterion_path %>

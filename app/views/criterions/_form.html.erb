@@ -10,23 +10,29 @@
     </div>
   <% end %>  
 
-  <%= f.inputs do %>
+  
     <%= f.input :title %>   
-    <%= f.input :body %>   
-    <%= f.input :tasks, :as => :check_boxes %>
-  <% end %>
+    <%= f.input :body, :as => :text %>   
    
-  <%= f.fields_for :levels do |level_form| %>
-    <%= level_form.input :level %>
-    <%= level_form.link_to_remove "Remove this" %>
-  <% end %> 
-  <p><%= f.link_to_add "Add Level", :levels %></p>
+  <h4><%=t("Performance criterion")%></h4>
+  <div class='criteria_level_fields'>
+    <%= f.fields_for :levels, :html => {  } do |level_form| %>
+      <%= level_form.input :level, :label => I18n.t('activerecord.attributes.criterion.level') %>
+      <%= level_form.link_to_remove "Remove this" %>
+    <% end %> 
+    <div class='link_add_criterion'><%= f.link_to_add t("Add Level"), :levels %></div>
+  </div>
+  
+  <%= f.input :tasks, :as => :check_boxes %>
 
-  <%= f.actions do %>
-     <%= f.action :submit, :as => :button %>
-     <%= f.action :cancel, :as => :link %>
-  <% end %>
+
+  <%= f.action :submit, :as => :button %>
+  <%= f.action :cancel, :as => :link %>
+  
+  
 
 <% end %>
+
+
 
 

@@ -12,26 +12,21 @@
   <% end %>
 
 
-    <%= f.input :title %>   
-    <%= f.input :body %>   
+  <%= f.input :title %>   
+  <%= f.input :body %>   
 
   
-
-
   <% @task.criterions.each do |criterion| %>
       <%= criterion.title %>
-     <select>
-       <optgroup label="Asia">         
+     <select>        
          <% criterion.levels.each do |level| %>
            <option><%= level.level %></option>
          <% end %>         
        </optgroup>
      </select>
   <% end %>
-
     
-
-     <%= f.action :submit, :as => :button %>
-     <%= f.action :cancel, :as => :link %>
-
+  <%= f.action :submit, :as => :button %>
+  <%= f.action :cancel, :as => :link %>
+  
 <% end %>

@@ -1,8 +1,8 @@
 
 <table>
   <tr>
-    <th>Title</th>
-    <th>Body</th>
+    <th><%=t("Title")%></th>
+    <th><%=t("Body")%></th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,13 +12,15 @@
   <tr>
     <td><%= task.title %></td>
     <td><%= task.body %></td>
-    <td><%= link_to 'Show', task %></td>
-    <td><%= link_to 'Edit', edit_task_path(task) %></td>
-    <td><%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to t('Show'), task %></td>
+    <td><%= link_to t('Edit'), edit_task_path(task) %></td>
+    <td><%= link_to t('Destroy'), task, confirm: t('Are you sure?'), method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
+<br />
 
+<%= link_to t('New Task'), new_task_path %>
 
 
