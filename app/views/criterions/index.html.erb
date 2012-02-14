@@ -14,7 +14,7 @@
     <td><%= criterion.title %></td>
     <td><%= criterion.body %></td>
     <td><% criterion.tasks.each do |task| %>
-      <%= task.title %>
+      <%= task.title %><br />
     <% end %></td>
     <td><%= link_to t('Show'), criterion %></td>
     <td><%= link_to t('Edit'), edit_criterion_path(criterion) %></td>

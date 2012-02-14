@@ -5,7 +5,7 @@ class CriterionsController < ApplicationController
   
   def new
     @criterion = Criterion.new
-    1.times do
+    3.times do
       level = @criterion.levels.build
     end
   end
