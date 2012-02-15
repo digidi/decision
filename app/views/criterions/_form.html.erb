@@ -10,9 +10,8 @@
     </div>
   <% end %>  
 
-  
-    <%= f.input :title %>   
-    <%= f.input :body, :as => :text %>   
+  <%= f.input :title %>   
+  <%= f.input :body, :as => :text %>   
    
   <h4><%=t("Performance criterion")%></h4>
   <div class='criteria_level_fields'>
@@ -28,8 +27,6 @@
 
   <%= f.action :submit, :as => :button %>
   <%= f.action :cancel, :as => :link %>
-  
-  
 
 <% end %>
 

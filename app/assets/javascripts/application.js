@@ -8,3 +8,17 @@
 //= require jquery_ujs
 //= require jquery_nested_form
 
+/* zebra for table*/
+$(document).ready(function(){
+
+   $('table tr').each(function(i, it){
+
+      if(i % 2 == 0) {
+
+         $(this).addClass('even');
+      }
+
+   })
+
+});
+/* end */

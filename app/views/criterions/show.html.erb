@@ -8,6 +8,6 @@
 
 <p>
   <%= link_to t("Edit"), edit_criterion_path(@criterion) %> |
-  <%= link_to t("Destroy"), @criterion, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to t("Destroy"), @criterion, :confirm => t('Are you sure?'), :method => :delete %> |
   <%= link_to t("View All"), criterions_path %>
 </p>

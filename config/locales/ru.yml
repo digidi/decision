@@ -10,6 +10,7 @@ ru:
   "New Criterion": "Добавить критерий"
   "New Task": "Добавить задачу"
   "Are you sure?": "Вы уверенны?"
+  
   formtastic:
     required: "обязательно для заполения"
     actions:
