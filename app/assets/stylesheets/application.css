@@ -341,8 +341,32 @@ div#body {
 	background: #FFFFFF;
 }
 
+
+/* sidebar */
+
+.sidebar{
+  width:440px;
+  float: right;
+  display: block;
+  padding: 20px;
+}
+
+
+.sidebar li{
+  list-style: decimal;
+  margin-left: 20px;
+}
+
+
+.content{
+  width: 440px;
+  display: block;
+  float: left;
+}
+
+
 /** content+sidebar styles **/
-div.column {
+/*div.column {
 	float:left;
 	line-height:1.9em;
 	padding:10px 0;
@@ -400,7 +424,7 @@ div.bcnav ul li {
 	float:left;
 	display:block;
 	padding:0 2px;
-}
+}*/
 /*div#sidebar ul {
 	margin:0;
 	padding:0;

@@ -8,17 +8,18 @@
 //= require jquery_ujs
 //= require jquery_nested_form
 
-/* zebra for table*/
-$(document).ready(function(){
-
-   $('table tr').each(function(i, it){
-
-      if(i % 2 == 0) {
-
-         $(this).addClass('even');
-      }
-
-   })
-
+$(document).ready(function () {
+  if ($('#criterion_answer_input').length) {
+    if ($('#criterion_answer_a1').is(':checked')) {
+      $('.criteria_level_fields').hide();
+    }; 
+    
+    $('.criterion_answer').change(function() {
+      if ($('#criterion_answer_a1').is(':checked')) {
+        $('.criteria_level_fields').hide();
+      } else {
+        $('.criteria_level_fields').slideToggle("fast");
+      };
+    });
+  };
 });
-/* end */

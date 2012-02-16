@@ -13,6 +13,7 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'default_value_for'
 gem 'formtastic', '~> 2.1.0.beta'
 gem 'compass-rails'
 gem 'jquery-rails'

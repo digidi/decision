@@ -1,16 +1,28 @@
-
+<div class="content">
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
+  <h4><%=t("Title")%></h4>
   <%= @task.title %>
 </p>
 
 <p>
-  <b>Body:</b>
+  <h4><%=t("Body")%></h4>
   <%= @task.body %>
 </p>
 
-
 <%= link_to t('Edit'), edit_task_path(@task) %> |
 <%= link_to t('Back'), tasks_path %>
+
+</div>
+
+<div class="sidebar">
+  <ol>
+    <h4><%=t("Criterions")%></h4>
+    <% @task.criterions.each do |criterion| %>
+      <li><%= criterion.title %></li>
+    <% end %>
+  </ol>
+</div>
+
+

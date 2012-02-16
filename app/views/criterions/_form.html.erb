@@ -14,6 +14,13 @@
   <%= f.input :body, :as => :text %>   
    
   <h4><%=t("Performance criterion")%></h4>
+
+      <%= f.input :answer, :label => false, :as => :radio, :collection => { 'Количественный' => 'a1', 'Качественный' => 'a2' }, :input_html => { :class => 'criterion_answer' } %>
+
+  <%if @criterion.levels.any? %>
+
+  <% end %>
+
   <div class='criteria_level_fields'>
     <%= f.fields_for :levels, :html => {  } do |level_form| %>
       <%= level_form.input :level, :label => I18n.t('activerecord.attributes.criterion.level') %>
@@ -21,7 +28,7 @@
     <% end %> 
     <div class='link_add_criterion'><%= f.link_to_add t("Add Level"), :levels %></div>
   </div>
-  
+   
   <%= f.input :tasks, :as => :check_boxes %>
 
 
@@ -29,7 +36,4 @@
   <%= f.action :cancel, :as => :link %>
 
 <% end %>
-
-
-
 
