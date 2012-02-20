@@ -186,6 +186,56 @@ li ol, li ul {
   background: #F0F8FF;
 }
 
+#hmenu ul{
+  list-style: none;	
+  /*margin: 0 0 2em;*/
+  padding: 0 17px;
+  float: right;
+  background:transparent url('nav-right.png') no-repeat scroll top right;
+}
+
+#hmenu ul li {
+  display: inline;  
+  padding: 0;
+  margin: 0; 
+}
+
+#hmenu ul li a{
+  display: inline;  
+  padding: 15px 2px;
+  margin: 0;  
+}
+
+.notice {
+    z-index: 101;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fde073;
+    text-align: center;
+    line-height: 2.5;
+    overflow: hidden;
+    font-weight: bold;
+    -webkit-box-shadow: 0 0 5px black;
+    -moz-box-shadow:    0 0 5px black;
+    box-shadow:         0 0 5px black;
+}
+
+.alert {
+    z-index: 101;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: red;
+    text-align: center;
+    line-height: 2.5;
+    overflow: hidden;
+    color: white;
+    font-weight: bold;
+    -webkit-box-shadow: 0 0 5px black;
+    -moz-box-shadow:    0 0 5px black;
+    box-shadow:         0 0 5px black;
+}
 
 
 /** wrapper **/
@@ -211,28 +261,25 @@ div#sitename h1 a {
 	font-family:Arial, Helvetica, sans-serif;
 	padding-bottom:5px;
 }
-div#navbar {
+div.navbar {
 	background:#E0E0E0 url('nav-bg.png') repeat-x scroll top left;
 }
-div#navbar ul {
+div.navbar ul {
 	list-style:none;
 	margin:0;
 	padding:0;
 	display:block;
 }
-div#navbar div {
+div.navbar div {
 	background:transparent url('nav-left.png') no-repeat scroll top left;
 }
-div#navbar ul {
-	height:47px;
-	background:transparent url('nav-right.png') no-repeat scroll top right;
-}
-div#navbar ul li {
+
+div.navbar ul li {
 	float:left;
 	display:block;
 	padding:13px 10px 12px;
 }
-div#navbar ul li a {
+div.navbar ul li a {
 	float:left;
 	color:#777;
 	text-decoration:none;
@@ -241,23 +288,23 @@ div#navbar ul li a {
 	margin:0 5px;
 	cursor:pointer;
 }
-div#navbar ul li a {
+div.navbar ul li a {
 	padding:3px 4px 4px;
 	display:block;
 	float:left;
 }
-div#navbar ul li.sfHover a,
-div#navbar ul li a:hover {
+div.navbar ul li.sfHover a,
+div.navbar ul li a:hover {
 	color:#333;
 }
-div#navbar ul li.selected a,
-div#navbar ul li.selected a:hover {
+div.navbar ul li.selected a,
+div.navbar ul li.selected a:hover {
 	border:none;
 	color:#fff;
 	background:#1E4B78 url('nav-selected-right.png') no-repeat scroll top right;
 }
-div#navbar ul li.selected a span,
-div#navbar ul li.selected a:hover span {
+div.navbar ul li.selected a span,
+div.navbar ul li.selected a:hover span {
 	background:transparent url('nav-selected-left.png') no-repeat scroll top left;
 }
 

@@ -9,7 +9,7 @@
   </tr>
 
 <% @tasks.each do |task| %>
-  <tr>
+  <tr class='<%= cycle('even', 'odd') %>'>
     <td><%= task.title %></td>
     <td><%= task.body %></td>
     <td><%= link_to t('Show'), task %></td>

@@ -3,7 +3,7 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.items do |primary|
     primary.item :task,
                  'Задачи',
-                 task_path,
+                 tasks_path,
                  :highlights_on => /^\/task/
 
     primary.item :criterion,

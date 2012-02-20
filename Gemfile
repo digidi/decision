@@ -14,6 +14,7 @@ group :development do
 end
 
 gem 'default_value_for'
+gem 'devise'
 gem 'formtastic', '~> 2.1.0.beta'
 gem 'compass-rails'
 gem 'jquery-rails'

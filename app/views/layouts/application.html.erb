@@ -13,15 +13,24 @@
   </h1>
 </div>
 
-<div id="navbar">
+<div class="navbar">
  <div class="sf-menu clear">
   <ul>
     <%= render_navigation :context => :main_menu %>
+    
+    <div id="hmenu"><ul>
+     <%= render 'devise/registration_items' %>
+     <%= render 'devise/login_items' %>
+    </div></ul>
+    
   </ul>
  </div>
 </div>
 
 <div id="body" class="clear">
+
+ <div class="notice"><%= notice %></div>
+ <div class="alert"><%= alert %></div>
 
 <%= yield %>
 
