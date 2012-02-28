@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120216083017) do
+ActiveRecord::Schema.define(:version => 20120224042301) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "ancestry"
+  end
+
+  add_index "categories", ["ancestry"], :name => "index_categories_on_ancestry"
+
+  create_table "categories_criterions", :id => false, :force => true do |t|
+    t.integer "category_id"
+    t.integer "criterion_id"
+  end
+
+  add_index "categories_criterions", ["category_id"], :name => "index_categories_criterions_on_categories_id"
+  add_index "categories_criterions", ["criterion_id"], :name => "index_categories_criterions_on_criterion_id"
 
   create_table "criterions", :force => true do |t|
     t.string   "title"

@@ -1,11 +1,12 @@
 Decision::Application.routes.draw do
 
   devise_for :users
-
   resources :criterions, :except => [:show]
   match '/criterions/:id' => 'criterions#index'
   
   resources :tasks
+  
+  resources :categories, :except => [:show]
   
   root :to => 'tasks#index'
 

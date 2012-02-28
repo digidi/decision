@@ -9,13 +9,15 @@
       </ul>
     </div>
   <% end %>  
+  
+  
 
   <%= f.input :title %>   
   <%= f.input :body, :as => :text %>   
    
   <h4><%=t("Performance criterion")%></h4>
 
-      <%= f.input :answer, :label => false, :as => :radio, :collection => { 'Количественный' => 'a1', 'Качественный' => 'a2' }, :input_html => { :class => 'criterion_answer' } %>
+  <%= f.input :answer, :label => false, :as => :radio, :collection => { 'Количественный' => 'a1', 'Качественный' => 'a2' }, :input_html => { :class => 'criterion_answer' } %>
 
 
 
@@ -29,9 +31,11 @@
    
   <%= f.input :tasks, :as => :check_boxes %>
 
-
   <%= f.action :submit, :as => :button %>
   <%= f.action :cancel, :as => :link %>
+  
+
+
 
 <% end %>
 

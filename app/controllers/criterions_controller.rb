@@ -4,7 +4,7 @@ class CriterionsController < ApplicationController
   inherit_resources
   
   def new
-    @criterion = Criterion.new
+  @criterion = Criterion.new
     3.times do
       level = @criterion.levels.build
     end

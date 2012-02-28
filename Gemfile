@@ -13,6 +13,7 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'ancestry'
 gem 'default_value_for'
 gem 'devise'
 gem 'formtastic', '~> 2.1.0.beta'
