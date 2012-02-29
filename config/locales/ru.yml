@@ -5,6 +5,7 @@ ru:
   "Body": "Описание"
   "Tasks": "Связаные задачи"
   "Criterions": "Связанные критерии"
+  "Categories": "Принадлежит следующим категориям"
   "Show": "Просмотреть"
   "Edit": "Редактировать"
   "Destroy": "Удалить"
@@ -12,12 +13,12 @@ ru:
   "New Criterion": "Добавить критерий"
   "New Task": "Добавить задачу"
   "Are you sure?": "Вы уверенны?"
+  "Roles": "Роли"
+  "Add": "Создать вложенную папку"
+  "New category": "Добавить категорию"
   
   formtastic:
     required: "обязательно для заполения"
-    labels:
-      user:
-        user_password: adas
           
     actions:
       create: "Создать"
@@ -25,15 +26,19 @@ ru:
       reset: "Reset form"
       cancel: "Отменить и вернуться назад"
       dummie: "Launch!"
-      Sign_in: das
 
     
   activerecord:
     attributes:
+      category:
+        title: "Заголовок"
+        body: "Описание"
+        criterions: "Связанные критерии"
       criterion:
         title: "Заголовок"
         body: "Описание"
         tasks: "Связаные задачи"
+        categories: "Принадлежит следующим категориям"
         level: "Значение"
       task:
         title: "Заголовок"

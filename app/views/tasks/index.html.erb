@@ -3,24 +3,29 @@
   <tr>
     <th><%=t("Title")%></th>
     <th><%=t("Body")%></th>
+    <% if can? :all, Task %>
     <th></th>
     <th></th>
     <th></th>
+    <% end %>
   </tr>
 
 <% @tasks.each do |task| %>
   <tr class='<%= cycle('even', 'odd') %>'>
     <td><%= task.title %></td>
     <td><%= task.body %></td>
-    <td><%= link_to t('Show'), task %></td>
-    <td><%= link_to t('Edit'), edit_task_path(task) %></td>
-    <td><%= link_to t('Destroy'), task, confirm: t('Are you sure?'), method: :delete %></td>
+    <% if can? :all, Task %>
+      <td><%= link_to t('Show'), task %></td>
+      <td><%= link_to t('Edit'), edit_task_path(task) %></td>
+      <td><%= link_to t('Destroy'), task, confirm: t('Are you sure?'), method: :delete %></td>
+    <% end %> 
   </tr>
 <% end %>
 </table>
 
-<br />
 
-<%= link_to t('New Task'), new_task_path %>
-
+<% if can? :all, Task %>
+  <br />
+  <%= link_to t('New Task'), new_task_path %>
+<% end %>
 

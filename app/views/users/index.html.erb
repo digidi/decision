@@ -1,0 +1,26 @@
+
+<table>
+  <tr>
+    <th><%=t("Title")%></th>
+    <th><%=t("Body")%></th>
+    <th><%=t("Roles")%></th>
+    <th><%=t("Edit")%></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr class='<%= cycle('even', 'odd') %>'>
+    <td><%= user.id %></td>
+    <td><%= user.email %></td>
+    <td>  
+    <% for role in User::ROLES %>
+      <%= check_box_tag "user[roles][]", role, user.roles.include?(role) %>
+      <%=h role.humanize %><br />
+    <% end %>
+    </td>
+<td><%= link_to t('Edit'), edit_user_path(user) %></td>
+  </tr>
+  
+<% end %>
+
+</table>
+

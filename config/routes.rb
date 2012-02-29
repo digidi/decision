@@ -6,10 +6,15 @@ Decision::Application.routes.draw do
   
   resources :tasks
   
+  resources :users, :only => [:index, :edit, :update]
+  match '/users/:id' => 'users#index'
+  
   resources :categories, :except => [:show]
+  match '/categories/:id' => 'categories#index'
   
   root :to => 'tasks#index'
 
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

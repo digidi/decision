@@ -1,4 +1,7 @@
+
+
 <h2>Редактирование "<%= resource_name.to_s.humanize %>"</h2>
+
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -15,9 +18,19 @@
   <div><%= f.label :current_password %> <br />
   <%= f.password_field :current_password %></div><br />
 
+
+  <% for role in User::ROLES %>
+    <%= check_box_tag "user[roles][]", role, @user.roles.include?(role) %>
+    <%=h role.humanize %><br />
+  <% end %>
+  <%= hidden_field_tag "user[roles][]", "" %>
+
   <div><%= f.submit "Обновить" %></div>
-<% end %>
+  <% end %>
+  
+
 
 <h3>Удаление аккаунта</h3>
 
 <p>Может останетесь с нами?:) <br /><%= link_to "Удалть мой аккаунт", registration_path(resource_name), :confirm => "Вы уверенны?", :method => :delete %>.</p>
+  

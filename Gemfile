@@ -14,6 +14,7 @@ group :development do
 end
 
 gem 'ancestry'
+gem 'cancan'
 gem 'default_value_for'
 gem 'devise'
 gem 'formtastic', '~> 2.1.0.beta'

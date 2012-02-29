@@ -4,8 +4,10 @@
     <th><%=t("Title")%></th>
     <th><%=t("Body")%></th>
     <th><%=t("Tasks")%></th>
+    <% if can? :all, Criterion %>
     <th></th>
     <th></th>
+    <% end %>
   </tr>
 
 <% @criterions.each do |criterion| %>
@@ -16,15 +18,16 @@
     <td><% criterion.tasks.each do |task| %>
       <%= task.title %><br />
     <% end %></td>
-    
-    <td><%= link_to t('Edit'), edit_criterion_path(criterion) %></td>
-    
-    <td><%= link_to t('Destroy'), criterion, confirm: t('Are you sure?'), method: :delete %></td>
+    <% if can? :all, Criterion %>
+      <td><%= link_to t('Edit'), edit_criterion_path(criterion) %></td>
+      <td><%= link_to t('Destroy'), criterion, confirm: t('Are you sure?'), method: :delete %></td>
+    <% end %>
 
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to t('New Criterion'), new_criterion_path %>
+<% if can? :all, Criterion %>
+  <br />
+  <%= link_to t('New Criterion'), new_criterion_path %>
+<% end %>
