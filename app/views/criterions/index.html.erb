@@ -1,9 +1,10 @@
+<% if Criterion.all.size.eql? 0 %>
+   <i><h4>Нет критериев</h4></i>
+<% else %>
 
 <table>
   <tr>
     <th><%=t("Title")%></th>
-    <th><%=t("Body")%></th>
-    <th><%=t("Tasks")%></th>
     <% if can? :all, Criterion %>
     <th></th>
     <th></th>
@@ -13,21 +14,20 @@
 <% @criterions.each do |criterion| %>
   <tr class='<%= cycle('even', 'odd') %>'>
         
-    <td><%= criterion.title %></td>
-    <td><%= criterion.body %></td>
-    <td><% criterion.tasks.each do |task| %>
-      <%= task.title %><br />
-    <% end %></td>
+    <td id='title'><%= link_to criterion.title, criterion %></td>
     <% if can? :all, Criterion %>
-      <td><%= link_to t('Edit'), edit_criterion_path(criterion) %></td>
-      <td><%= link_to t('Destroy'), criterion, confirm: t('Are you sure?'), method: :delete %></td>
+      <td id="edit"><%= link_to t('Edit'), edit_criterion_path(criterion) %></td>
+      <td id="destroy"><%= link_to t('Destroy'), criterion, confirm: t('Are you sure?'), method: :delete %></td>
     <% end %>
 
   </tr>
 <% end %>
 </table>
+<% end %>
 
 <% if can? :all, Criterion %>
   <br />
   <%= link_to t('New Criterion'), new_criterion_path %>
 <% end %>
+
+

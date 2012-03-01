@@ -18,13 +18,6 @@
   <div><%= f.label :current_password %> <br />
   <%= f.password_field :current_password %></div><br />
 
-
-  <% for role in User::ROLES %>
-    <%= check_box_tag "user[roles][]", role, @user.roles.include?(role) %>
-    <%=h role.humanize %><br />
-  <% end %>
-  <%= hidden_field_tag "user[roles][]", "" %>
-
   <div><%= f.submit "Обновить" %></div>
   <% end %>
   

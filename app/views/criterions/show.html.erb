@@ -1,9 +1,44 @@
-<p>
-  <h4><%=t("Title")%></h4>
-  <%= @criterion.title %>
-</p>
+<div class="content">
+
+<p><h3><%= @criterion.title %></h3></p>
 
 <p>
   <h4><%=t("Body")%></h4>
-  <%= @criterion.body %>
+  <% if @criterion.body.eql? ""%>
+    <i><%=t("Нет описания")%></i> 
+  <% else %>
+    <%= @criterion.body %>
+  <% end %>
 </p>
+<% if can? :all, Category %>
+  <%= link_to t('Edit'), edit_criterion_path(@criterion) %> |
+<% end %>  
+<%= link_to t('Back'), criterions_path %>
+
+</div>
+
+<div class="sidebar">
+  <ol>
+    <h4><%=t("Categories")%></h4>
+    <% if @criterion.categories.size.eql? 0 %>
+       <i><h5>Нет связанных категорий</h5></i>
+    <% else %>
+       <% @criterion.categories.each do |category| %>
+        <li><%= link_to category.title, category %></li>
+       <% end %>
+    <% end %>  
+  </ol>
+  
+  <ol>
+    <h4><%=t("Tasks")%></h4>
+    <% if @criterion.categories.size.eql? 0 %>
+       <i><h5>Нет связанных задач</h5></i>
+    <% else %>
+      <% @criterion.tasks.each do |task| %>
+        <li><%= link_to task.title, task %></li>
+      <% end %> 
+    <% end %> 
+  </ol>
+</div>
+
+

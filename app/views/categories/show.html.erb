@@ -1,0 +1,36 @@
+<div class="content">
+
+<p><h3><%= @category.title %></h3></p>
+
+<p>
+  <h4><%=t("Body")%></h4>
+  <% if @category.body.eql? ""%>
+    <i><%=t("Нет описания")%></i> 
+  <% else %>
+    <%= @category.body %>
+  <% end %>
+</p>
+<% if can? :all, Category %>
+  <%= link_to t('Edit'), edit_category_path(@category) %> |
+<% end %>  
+<%= link_to t('Back'), categories_path %>
+
+</div>
+
+<div class="sidebar">
+  <ol>
+    <h4><%=t("Criterions")%></h4>
+    <% if @category.criterions.size.eql? 0 %>
+       <i><h5>Нет связаных критериев</h5></i>
+    <% else %>
+      <% @category.criterions.each do |criterion| %>
+        <li><%= link_to criterion.title, criterion %></li>
+      <% end %>
+    <% end %>
+    
+
+    
+  </ol>
+</div>
+
+

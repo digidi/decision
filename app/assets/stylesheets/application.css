@@ -186,6 +186,39 @@ li ol, li ul {
   background: #F0F8FF;
 }
 
+.nested_categories {
+  margin-left: 30px;
+}
+
+.nested_categories .nested_categories .nested_categories .nested_categories {
+  margin-left: 0;
+}
+
+#show{
+  width: 50px;
+}
+
+#edit{
+  width: 50px;
+}
+
+#add{
+  width: 60px;
+}
+
+#destroy{
+  width: 50px;
+}
+
+#title{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.inline-errors{
+  color: red;
+}
+
 #hmenu ul{
   list-style: none;	
   /*margin: 0 0 2em;*/

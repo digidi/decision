@@ -1,34 +1,18 @@
+<% if Category.all.size.eql? 0 %>
+   <i><h4>Нет категорий</h4></i>
+<% else %>
 
-<table>
+<table id='tablecat'>
   <tr>
-    <th><%=t("Title")%></th>
-    <th><%=t("Body")%></th>
-    <th><%=t("Criterions")%></th>       
-  <% if can? :all, Category %>
-     <th></th>
-    <th></th>
-    <th></th>
-  <% end %>  
-  </tr>
 
-<% @categories.each do |category| %>
-  <tr class='<%= cycle('even', 'odd') %>'>
-        
-    <td><%= category.title %></td>
-    <td><%= category.body %></td>
-    <td><% category.criterions.each do |criterion| %>
-      <%= criterion.title %><br />
-    <% end %></td>
-    
-  <% if can? :all, Category %>
-    <td><%= link_to t('Edit'), edit_category_path(category) %></td>
-    <td><%= link_to t('Add'), new_category_path(:parent_id => category) %></td>
-    <td><%= link_to t('Destroy'), category, confirm: t('Are you sure?'), method: :delete %></td>
-  <% end %>
+
+<%= nested_categories @categories.arrange(:order => :title) %>
+
 
   </tr>
-<% end %>
+
 </table>
+<% end %>
 
 <% if can? :all, Category %>
   <br />
