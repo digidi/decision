@@ -5,7 +5,12 @@
    
   <h4><%=t("Performance criterion")%></h4>
 
-  <%= f.input :answer, :label => false, :as => :radio, :collection => { 'Количественный' => 'a1', 'Качественный' => 'a2' }, :input_html => { :class => 'criterion_answer' } %>
+  <%= f.input :answer, 
+              :label => false,
+              :validate => true, 
+              :as => :radio, 
+              :collection => { "Количественный" => 'a1', "Качественный" => 'a2'}, 
+              :input_html => { :class => 'criterion_answer' } %>
 
   <div class='criteria_level_fields'>
     <%= f.fields_for :levels, :html => {  } do |level_form| %>
@@ -17,7 +22,9 @@
    
   <%= f.input :tasks, :as => :check_boxes %>
   
-  <%= f.input :categories, :as => :check_boxes, :input_html => {:class => "1234123"} %>
+  <%= f.input :categories, 
+              :as => :check_boxes,
+              :member_label => ->(c) { ('--' * 2 * c.depth + c.title).html_safe } %>
   
   <%= f.action :submit, :as => :button %>
   <%= f.action :cancel, :as => :link %>

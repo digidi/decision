@@ -8,7 +8,7 @@ class Criterion < ActiveRecord::Base
   
   accepts_nested_attributes_for :levels, :reject_if => lambda { |a| a  [:level].blank? }, :allow_destroy => true
   
-  attr_accessor :answer
+
   
   default_value_for :answer, 'a1'
   

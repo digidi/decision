@@ -8,5 +8,3 @@ module CategoriesHelper
 
 end
 
-
-
