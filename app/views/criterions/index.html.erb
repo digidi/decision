@@ -23,17 +23,20 @@
   </tr>
 <% end %>
 </table>
+
 <% end %>
 
-
+<% if Criterion.all.size.>= 10 %>
 <div class="digg_pagination">
   <br /><%= will_paginate @criterions, :container => false %>
 </div>
-
+<% end %>
 
 <% if can? :all, Criterion %>
   <br />
   <%= link_to t('New Criterion'), new_criterion_path %>
+<% else %>
+  <h4><%= "Вы не можете управлять критериями, для того чтобы это исправить обратитесь к вашему администратору." %></h4>
 <% end %>
 
 

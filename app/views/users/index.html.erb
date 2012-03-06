@@ -7,15 +7,20 @@
     <th></th>
   </tr>
 
+
+
 <% @users.each do |user| %>
   <tr class='<%= cycle('even', 'odd') %>'>
     <td><%= user.id %></td>
     <td><%= user.email %></td>
-    <td>  
-    <% for role in User::ROLES %>
-      <%= check_box_tag "user[roles][]", role, user.roles.include?(role) %>
-      <%=h role.humanize %><br />
-    <% end %>
+    <td>
+      <% if user.roles.any? %>
+        <% user.roles.each do |role|%>
+          <%= role %><br />
+        <% end %>
+      <% else %>  
+        <i>Нет ролей</i>
+      <% end %>
     </td>
 <td><%= link_to t('Edit'), edit_user_path(user) %></td>
   </tr>

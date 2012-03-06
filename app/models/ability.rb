@@ -3,11 +3,9 @@ class Ability
 
   def initialize(user)
   
-    user ||= User.new
+    user == @user
 
     can :read, :all
-    
-
     
     can :manage, :all if user.is? :admin
     
@@ -16,6 +14,10 @@ class Ability
     can :manage, Task if user.is? :taskmkr
     
     can :manage, Category if user.is? :categorymkr
+    
+    can :edit, :update, User do | user |
+      user = @user
+    end
     
     # Define abilities for the passed in user here. For example:
     #

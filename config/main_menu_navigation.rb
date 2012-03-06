@@ -14,6 +14,6 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :category,
                  'Категории',
                  categories_path,
-                 :highlights_on => /^\/category/
+                 :highlights_on => /^\/categories/
   end
 end
