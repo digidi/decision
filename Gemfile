@@ -25,5 +25,11 @@ gem 'nested_form'
 gem 'rails'
 gem 'russian'
 gem 'simple-navigation'
+gem 'therubyracer'
 gem 'will_paginate', '~> 3.0'
+ 
+group :production do
+  gem 'unicorn', :require => false
+  gem 'pg', :require => false
+end
 
