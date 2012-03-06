@@ -4,12 +4,12 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :task,
                  'Задачи',
                  tasks_path,
-                 :highlights_on => /^\/task/
+                 :highlights_on => /^\/tasks/
 
     primary.item :criterion,
                  'Критерии',
                  criterions_path,
-                 :highlights_on => /^\/criterion/
+                 :highlights_on => /^\/criterions/
                  
     primary.item :category,
                  'Категории',
