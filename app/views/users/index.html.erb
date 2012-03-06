@@ -1,10 +1,10 @@
-
+<% if can? :all, User %>
 <table>
   <tr>
-    <th><%=t("Title")%></th>
-    <th><%=t("Body")%></th>
+    <th><%=t("Id")%></th>
+    <th><%=t("e-mail")%></th>
     <th><%=t("Roles")%></th>
-    <th><%=t("Edit")%></th>
+    <th></th>
   </tr>
 
 <% @users.each do |user| %>
@@ -23,4 +23,5 @@
 <% end %>
 
 </table>
+<% end %>
 

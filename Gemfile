@@ -25,4 +25,5 @@ gem 'nested_form'
 gem 'rails'
 gem 'russian'
 gem 'simple-navigation'
+gem 'will_paginate', '~> 3.0'
 

@@ -7,6 +7,8 @@ class Ability
 
     can :read, :all
     
+
+    
     can :manage, :all if user.is? :admin
     
     can :manage, Criterion if user.is? :criterionmkr

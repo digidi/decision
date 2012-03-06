@@ -25,6 +25,12 @@
 </table>
 <% end %>
 
+
+<div class="digg_pagination">
+  <br /><%= will_paginate @criterions, :container => false %>
+</div>
+
+
 <% if can? :all, Criterion %>
   <br />
   <%= link_to t('New Criterion'), new_criterion_path %>
