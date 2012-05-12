@@ -5,11 +5,17 @@ class Ability
   
     user == @user
 
-    can :read, :all
+    can :read, :all 
+    cannot :read, Request
+    can :create, Request 
     
     can :manage, :all if user.is? :admin
+        
+    can :manage, Request, :user_id => user.id
     
     can :manage, Criterion if user.is? :criterionmkr
+    
+    can :manage, Danger if user.is? :dangermkr
     
     can :manage, Task if user.is? :taskmkr
     
@@ -18,6 +24,7 @@ class Ability
     can :edit, :update, User do | user |
       user = @user
     end
+    
     
     # Define abilities for the passed in user here. For example:
     #

@@ -1,0 +1,42 @@
+<% if Criterion.all.size.eql? 0 %>
+   <i><h4>Нет критериев</h4></i>
+<% else %>
+
+<table>
+  <tr>
+    <th><%=t("Title")%></th>
+    <% if can? :all, Criterion %>
+    <th></th>
+    <th></th>
+    <% end %>
+  </tr>
+
+<% @criterions.each do |criterion| %>
+  <tr class='<%= cycle('even', 'odd') %>'>
+        
+    <td id='title'><%= link_to criterion.title, manage_criterion_path(criterion) %></td>
+    <% if can? :all, Criterion %>
+      <td id="edit"><%= link_to t('Edit'), edit_manage_criterion_path(criterion) %></td>
+      <td id="destroy"><%= link_to t('Destroy'), manage_criterion_path, confirm: t('Are you sure?'), method: :delete %></td>
+    <% end %>
+    
+  </tr>
+<% end %>
+</table>
+
+<% end %>
+
+<% if Criterion.all.size.>= 10 %>
+<div class="digg_pagination">
+  <br /><%= will_paginate @criterions, :container => false %>
+</div>
+<% end %>
+
+<% if can? :all, Criterion %>
+  <br />
+  <%= link_to t('New Criterion'), new_manage_criterion_path, :class => 'button spade' %>
+<% else %>
+  <h4><%= "Вы не можете управлять критериями, для того чтобы это исправить обратитесь к вашему администратору." %></h4>
+<% end %>
+
+

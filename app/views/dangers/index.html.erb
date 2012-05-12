@@ -1,0 +1,26 @@
+<% if Danger.all.size.eql? 0 %>
+  <i><h4>Нет рисков</h4></i>
+<% else %>
+   
+<table>
+  <tr>
+    <th><%=t("Title")%></th>
+    <% if can? :all, Danger %>
+    <th></th>
+    <th></th>
+    <% end %>
+  </tr>
+
+<% end %>
+
+<% @dangers.each do |danger| %>
+  <tr class='<%= cycle('even', 'odd') %>'>      
+    <td id='title'><%= link_to danger.title, danger %></td>
+  </tr>
+<% end %>
+
+</table>
+
+
+
+

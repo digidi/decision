@@ -7,8 +7,10 @@
   <%= @task.body %>
 </p>
 
-<%= link_to t('Edit'), edit_task_path(@task) %> |
-<%= link_to t('Back'), tasks_path %>
+<%= link_to "Посмотреть все задачи", task_requests_path(@task), :class => 'button spade' %>
+<%= link_to "Создать новую задачу", new_task_request_path(@task, @request), :class => 'button spade' %>
+<br /><br />
+<%= link_to t('Back'), tasks_path, :class => 'button light' %>
 
 </div>
 
@@ -19,10 +21,20 @@
        <i><h5>Нет связаных критериев</h5></i>
     <% else %>
       <% @task.criterions.each do |criterion| %>
-          <li><%= link_to criterion.title, criterion %></li>sadas
+          <li><%= link_to criterion.title, criterion %></li>
+      <% end %>
+    <% end %>
+  </ol>
+  
+  <ol>
+    <h4><%=t("Dangers")%></h4>
+    <% if @task.dangers.size.eql? 0 %>
+       <i><h5>Нет связаных рисков</h5></i>
+    <% else %>
+      <% @task.dangers.each do |danger| %>
+          <li><%= link_to danger.title, danger %></li>
       <% end %>
     <% end %>
   </ol>
 </div>
-
 

@@ -1,19 +1,41 @@
 Decision::Application.routes.draw do
 
+  
   devise_for :users
+  
+  resources :dangers, :only => [:index, :show]
   
   resources :criterions
   
-  resources :tasks
+  resources :tasks, :only => [:index, :show] do
+    resources :requests  do
+      resources :criterion_requests 
+    end
+  end
   
   resources :users, :only => [:index, :edit, :update]
   match '/users/:id' => 'users#index'
   
-  resources :categories
+  resources :categories, :only => [:index, :show]
   
   root :to => 'tasks#index'
-
   
+  namespace :manage do 
+  
+    resources :dangers
+  
+    resources :criterions
+  
+    resources :tasks
+  
+    resources :users, :only => [:index, :edit, :update]
+    match '/users/:id' => 'users#index'
+  
+    resources :categories
+  
+    root :to => 'tasks#index'
+
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

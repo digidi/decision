@@ -1,0 +1,57 @@
+<!DOCTYPE html  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>DecisionSupSys</title>
+  
+  
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  
+  <%= stylesheet_link_tag "print", :media => "print" %>
+  
+  <%= csrf_meta_tag %>
+</head>
+<body>
+<div id="sitename">
+  <h1>
+    <%= link_to 'Система анализа данных и принятия решений', manage_tasks_path %>
+  </h1>
+</div>
+
+<div class="navbar">
+ <div class="sf-menu clear">
+  <ul>
+
+    <%= render_navigation :context => :manage %>
+    
+
+    <div id="hmenu"><ul>
+     <%= render 'devise/registration_items' %>
+     <%= render 'devise/login_items' %>
+    </div></ul>
+  </ul>
+ </div>
+</div>
+
+<div id="body" class="clear">
+
+ <div class="notice"><%= notice %></div>
+ <div class="alert"><%= alert %></div>
+
+<%= yield %>
+
+</div>
+
+<div id="footer">
+  <p>&copy; 2012. <a href="http://decision.openteam.ru/">Decision Support System</a></p>
+  <div class="openteam">
+    <p><a href="http://openteam.ru/">OpenTeam</a></p>
+  </div>		
+</div>
+
+</body>
+</html>
+
+

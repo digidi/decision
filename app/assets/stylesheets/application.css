@@ -157,12 +157,45 @@ li ol, li ul {
 	padding-top:5px;
 }
 
+
+#new_criterion_request .action{
+  float: left;
+
+}
+#criterion_request_criterion_input
+{
+  width: 150px; 
+
+
+}
+#criterion_request_criterion_input select{
+  width: 150px; 
+
+}
+
+#criterion_request_value_input{
+  width: 150px; 
+
+
+}
+#criterion_request_value_input input{
+  width: 143px;
+
+  
+}
 .string.input {
 	font-size:15px;
 	color:#555555;
 	font-weight:bold;
 }
-.string.input label
+
+.select.input {
+	font-size:15px;
+	color:#555555;
+	font-weight:bold;
+}
+
+.string.input   l
 {
   display: block;
 }
@@ -177,9 +210,18 @@ li ol, li ul {
   display: block;
 }
 
+.select.input label
+{
+  display: block;
+}
+
 .text.input textarea {
   width: 500px;
   height: 120px;
+}
+
+.string.input input {
+  width: 500px;
 }
 
 .even {
@@ -195,24 +237,31 @@ li ol, li ul {
 }
 
 #show{
-  width: 50px;
+  width: 70px;
 }
 
 #edit{
-  width: 50px;
+  width: 70px;
 }
 
 #add{
-  width: 60px;
+  width: 70px;
 }
 
 #destroy{
-  width: 50px;
+  width: 70px;
 }
 
 #title{
   font-size: 16px;
   font-weight: bold;
+}
+
+.cr_re{
+  font-size: 13px;
+  font-weight: bold;
+  border-bottom: none;
+  padding: 0 0 5px 0;
 }
 
 .inline-errors{

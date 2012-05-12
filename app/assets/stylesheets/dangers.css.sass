@@ -1,0 +1,42 @@
+// Place all the styles related to the criterions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'compass/utilities'
+
+body
+  .danger_aftermath_fields
+    /*display: none*/
+    .fields
+      +clearfix
+      li
+        float: left
+      a
+        +inline-block
+        float: left
+        width: 16px
+        height: 16px
+        overflow: hidden
+        outline: none
+        text-indent: -9999em
+        background: transparent url('icon_remove.png') no-repeat center center
+        margin: 37px 0 0 10px
+    .string.input.optional.stringish    
+      label
+        font-size: 12px
+        font-weight: normal
+        display: inline
+        margin-right: 10px
+    .input
+      textarea
+        height: 52px
+  .link_add_criterion
+    margin: 0 0 10px 0
+  #danger_probability_input
+    label
+      font-size: 15px
+      font-weight: bold
+      color: #555
+      display: block
+
+

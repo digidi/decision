@@ -9,11 +9,8 @@
   <% else %>
     <%= @criterion.body %>
   <% end %>
-</p>
-<% if can? :all, Category %>
-  <%= link_to t('Edit'), edit_criterion_path(@criterion) %> |
-<% end %>  
-<%= link_to t('Back'), criterions_path %>
+</p> 
+<%= link_to t('Back'), criterions_path, :class => 'button light' %>
 </div>
 
 <div class="sidebar">

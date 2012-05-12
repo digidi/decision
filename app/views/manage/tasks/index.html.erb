@@ -1,0 +1,34 @@
+<% if Task.all.size.eql? 0 %>
+  <i><h4>Нет задач</h4></i>
+<% else %>
+<table>
+  <tr>
+    <th><%=t("Title")%></th>   
+    <% if can? :all, Task %>
+    <th></th>
+    <th></th>
+    <% end %>
+  </tr>
+
+<% @tasks.each do |task| %>
+  <tr class='<%= cycle('even', 'odd') %>'>
+    <td id='title'><%= link_to task.title, manage_task_path(task) %></td>
+    <% if can? :all, Task %>
+      <td id="edit"><%= link_to t('Edit'), edit_manage_task_path(task) %></td>
+      <td id="destroy"><%= link_to t('Destroy'), manage_task_path, confirm: t('Are you sure?'), method: :delete %></td>
+    <% end %> 
+  </tr>
+<% end %>
+</table>
+<% end %>
+
+<% if can? :all, Task %>
+  <br />
+  <%= link_to t('New Task'), new_manage_task_path, :class => 'button spade' %>
+<% else %>
+  <h4><%= "Вы не можете управлять критериями, для того чтобы это исправить обратитесь к вашему администратору." %></h4>
+<% end %>
+
+
+
+

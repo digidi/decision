@@ -7,5 +7,9 @@ class CategoriesController < ApplicationController
   def new
     @category = Category.new(:parent_id => params[:parent_id])
   end
+  
+  def index 
+    @categories = Category.paginate(:page => params[:page], :order => 'title')
+  end
     
 end

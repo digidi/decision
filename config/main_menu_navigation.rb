@@ -1,8 +1,8 @@
 # encoding: utf-8
 SimpleNavigation::Configuration.run do |navigation|
-  navigation.items do |primary|
+ navigation.items do |primary|
     primary.item :task,
-                 'Задачи',
+                 'Классы задач',
                  tasks_path,
                  :highlights_on => /^\/tasks/
 
@@ -15,5 +15,10 @@ SimpleNavigation::Configuration.run do |navigation|
                  'Категории',
                  categories_path,
                  :highlights_on => /^\/categories/
-  end
+                 
+    primary.item :danger,
+                 'Риски',
+                 dangers_path,
+                 :highlights_on => /^\/dangers/
+    end
 end

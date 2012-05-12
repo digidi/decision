@@ -1,0 +1,36 @@
+<%= semantic_nested_form_for @criterion, :url => manage_criterion_path, :html => { :multipart => true } do |f| %>
+
+  <%= f.input :title %>   
+  <%= f.input :body, :as => :text %>   
+   
+  <h4><%=t("Performance criterion")%></h4>
+
+  <%= f.input :answer, 
+              :label => false,
+              :validate => true, 
+              :as => :radio, 
+              :collection => { "Количественный" => 'a1', "Качественный" => 'a2'}, 
+              :input_html => { :class => 'criterion_answer' } %>
+
+  <div class='criteria_level_fields'>
+    <%= f.fields_for :levels, :html => {  } do |level_form| %>
+      <%= level_form.input :level, :label => I18n.t('activerecord.attributes.criterion.level') %>
+      <%= level_form.link_to_remove "Remove this" %>
+    <% end %> 
+    <div class='link_add_criterion'><%= f.link_to_add t("Add Level"), :levels %></div>
+  </div>
+   
+  <%= f.input :tasks, :as => :check_boxes %>
+  
+  <%= f.input :categories, 
+              :as => :check_boxes,
+              :member_label => ->(c) { ('--' * 2 * c.depth + c.title).html_safe } %>
+  
+  <%= f.action :submit, :as => :button, :button_html => { :class => 'button spade'} %>
+  <%= f.action :cancel, :as => :link, :button_html => { :class => 'button light'} %>
+  
+
+
+
+<% end %>
+

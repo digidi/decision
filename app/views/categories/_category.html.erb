@@ -3,11 +3,5 @@
   <tr class='<%= cycle('even', 'odd') %>'>
         
     <td id='title'><%= link_to category.title, category %></td>
-   
-  <% if can? :all, Category %>
-    <td id='add'><%= link_to t('Add'), new_category_path(:parent_id => category) %></td>
-    <td id='edit'><%= link_to t('Edit'), edit_category_path(category) %></td>
-    <td id='destroy'><%= link_to t('Destroy'), category, confirm: t('Are you sure?'), method: :delete %></td>
-  <% end %>
 
 </table>

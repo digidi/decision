@@ -1,0 +1,22 @@
+<% if Category.all.size.eql? 0 %>
+   <i><h4>Нет категорий</h4></i>
+<% else %>
+
+<table id='tablecat'>
+  <tr>
+
+
+<%= nested_categories @categories.arrange(:order => :title) %>
+
+
+  </tr>
+
+</table>
+<% end %>
+
+<% if can? :all, Category %>
+  <br />
+  <%= link_to t('New category'), new_manage_category_path, :class => 'button spade' %>
+<% else %>
+  <h4><%= "Вы не можете управлять категориями, для того чтобы это исправить обратитесь к вашему администратору." %></h4>
+<% end %>

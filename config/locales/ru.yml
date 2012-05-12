@@ -1,5 +1,6 @@
 ru:
   "Add Level": "Добавить значение"
+  "Add Aftermath": "Добавить последствие"
   "Performance criterion": "Характеристики критерия"
   "Title": "Заголовок"
   "Body": "Описание"
@@ -16,6 +17,8 @@ ru:
   "Roles": "Роли"
   "Add": "+ категория"
   "New category": "Добавить категорию"
+  "New danger": "Добавить риск"
+  "Dangers": "Риски"
   
   formtastic:
     required: "обязательно для заполения"
@@ -43,12 +46,25 @@ ru:
       task:
         title: "Заголовок"
         body: "Описание"
+      danger:
+        title: "Заголовок"
+        body: "Описание"
+        aftermath: "Последствие риска"
+        tasks: "Связаные задачи"
+        probability: "Вероятность наступления"
+      request:
+        title: "Заголовок"
+        body: "Описание"
+      criterion_request:
+        criterion: "Критерий"
+        value: "Значение"
       user:
         email: Электронная почта
         password: Пароль
         password_confirmation: Подтверждения пароля
         remember_me: Запомнить меня?
         current_password: Текущий пароль
+      
 
 
   devise:

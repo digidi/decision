@@ -1,0 +1,37 @@
+<% if Danger.all.size.eql? 0 %>
+  <i><h4>Нет рисков</h4></i>
+<% else %>
+   
+<table>
+  <tr>
+    <th><%=t("Title")%></th>
+    <% if can? :all, Danger %>
+    <th></th>
+    <th></th>
+    <% end %>
+  </tr>
+
+<% end %>
+
+<% @dangers.each do |danger| %>
+  <tr class='<%= cycle('even', 'odd') %>'>
+        
+    <td id='title'><%= link_to danger.title, danger %></td>
+    <% if can? :all, Danger %>
+      <td id="edit"><%= link_to t('Edit'), edit_danger_path(danger) %></td>
+      <td id="destroy"><%= link_to t('Destroy'), danger, confirm: t('Are you sure?'), method: :delete %></td>
+    <% end %>
+
+  </tr>
+<% end %>
+
+
+</table>
+<% if can? :all, Danger %>
+  <br />
+  <%= link_to t('New danger'), new_manage_danger_path, :class => 'button spade' %>
+<% else %>
+  <h4><%= "Вы не можете управлять рисками, для того чтобы это исправить обратитесь к вашему администратору." %></h4>
+<% end %>
+
+

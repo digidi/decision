@@ -10,10 +10,8 @@
     <%= @category.body %>
   <% end %>
 </p>
-<% if can? :all, Category %>
-  <%= link_to t('Edit'), edit_category_path(@category) %> |
-<% end %>  
-<%= link_to t('Back'), categories_path %>
+
+<%= link_to t('Back'), categories_path, :class => 'button light' %>
 
 </div>
 
