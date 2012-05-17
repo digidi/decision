@@ -43,6 +43,15 @@ td {
 	/*background:#fff;*/
 	border-bottom:1px solid #d0d0d0;
 }
+
+
+table.tablerequest{
+  width: 920px;
+}
+table.tablerequest #TRtitle{
+  width: 300px;
+}
+
 code, blockquote {
 	display:block;
 	border-left:5px solid #ddd;
@@ -160,29 +169,28 @@ li ol, li ul {
 
 #new_criterion_request .action{
   float: left;
-
 }
-#criterion_request_criterion_input
-{
+
+#criterion_request_criterion_input{
   width: 150px; 
-
-
 }
+
 #criterion_request_criterion_input select{
   width: 150px; 
-
 }
 
 #criterion_request_value_input{
   width: 150px; 
-
-
 }
+
 #criterion_request_value_input input{
-  width: 143px;
-
-  
+  width: 143px; 
 }
+
+#danger_request_danger_id{
+  width: 150px; 
+}
+
 .string.input {
 	font-size:15px;
 	color:#555555;
@@ -264,8 +272,21 @@ li ol, li ul {
   padding: 0 0 5px 0;
 }
 
+.cr_re li{
+  list-style: decimal;
+}
+
+.cr_re ol{
+  margin: 0 0 0px 10px;
+}
+
 .inline-errors{
   color: red;
+}
+
+.link_add_aftermath{
+  font-size: 14px;
+  padding: 5px 0 10px 0;
 }
 
 #hmenu ul{
@@ -370,6 +391,7 @@ li ol, li ul {
     height: 1%; }
   *:first-child + html .digg_pagination {
     overflow: hidden; }
+
 
 
 /** wrapper **/

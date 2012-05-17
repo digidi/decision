@@ -2,23 +2,9 @@
 
   <%= f.input :title %>   
   <%= f.input :body, :as => :text %> 
-  <%= f.input :probability %>
   
-  <div class='danger_aftermath_fields'>
-    <%= f.fields_for :aftermaths, :html => {  } do |aftermath_form| %>
-      <%= aftermath_form.input :aftermath, :label => I18n.t('activerecord.attributes.danger.aftermath') %>
-      <%= aftermath_form.link_to_remove "Remove this" %>
-    <% end %> 
-    <div class='link_add_aftermath'><%= f.link_to_add t("Add Aftermath"), :aftermaths %></div>
-  </div>
-  
-   
-  <br /><%= f.input :tasks, :as => :check_boxes %> 
-  
-
-
-  
-  
+  <%= f.input :tasks, :as => :check_boxes %> 
+ 
   <%= f.action :submit, :as => :button, :button_html => { :class => 'button spade'} %>
   <%= f.action :cancel, :as => :link, :button_html => { :class => 'button light'} %>
   

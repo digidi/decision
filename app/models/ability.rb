@@ -2,12 +2,16 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-  
+    # All users #
     user == @user
 
     can :read, :all 
     cannot :read, Request
     can :create, Request 
+    
+    can :manage, DangerRequest
+    can :manage, CriterionRequest
+    # End #
     
     can :manage, :all if user.is? :admin
         

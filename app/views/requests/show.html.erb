@@ -15,7 +15,12 @@
   <h4>Критерии не определены</h4>
 <% else %>
   <h4>Список критериев</h4> 
-  <table>
+  <table class="tablerequest">
+  <tr>
+    <th id="TRtitle">Название</th>
+    <th>Значение</th>
+    <th></th>
+  </tr>
     <% @request.criterion_requests.each do |criterion_request| %>
       <tr class='cr_re'>  
         <td><%= link_to Criterion.find_by_id(criterion_request.criterion_id).title, edit_task_request_criterion_request_path(@task, @request, criterion_request) %></td>
@@ -25,7 +30,34 @@
     <% end %>
   </table>
 <% end %>
-<%= link_to t('Добавить критерий'), new_task_request_criterion_request_path(@task, @request), :class => 'button spade' %>
+
+<%= link_to t('Добавить критерий'), new_task_request_criterion_request_path(@task, @request), :class => 'button spade' %><br /><br />
+
+<% if @request.dangers.size.eql? 0 %>
+  <h4>Риски не определены</h4>
+<% else %>
+  <h4>Список рисков</h4> 
+  <table class="tablerequest">
+    <tr>
+    <th id="TRtitle">Название</th>
+    <th>Последствия</th>
+    <th></th>
+  </tr>
+    <% @request.danger_requests.each do |danger_request| %>
+      <tr class='cr_re'>  
+        <td><%= link_to Danger.find_by_id(danger_request.danger_id).title, edit_task_request_danger_request_path(@task, @request, danger_request) %></td>
+        <td><ol><% danger_request.aftermaths.each do |aftermath| %>
+          <li><%= aftermath.aftermath %></li><br />
+        <% end %>
+        </ol></td>
+        <td id="destroy"><%= link_to t('Destroy'), task_request_danger_request_path(@task, @request, danger_request), confirm: t('Are you sure?'), method: :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+
+<%= link_to t('Добавить риск'), new_task_request_danger_request_path(@task, @request), :class => 'button spade' %>
 
 <%= link_to t('Back'), task_requests_path(@task), :class => 'button light' %>
 </div>

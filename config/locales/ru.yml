@@ -1,6 +1,6 @@
 ru:
   "Add Level": "Добавить значение"
-  "Add Aftermath": "Добавить последствие"
+  "Add Aftermath": "+ добавить последствие"
   "Performance criterion": "Характеристики критерия"
   "Title": "Заголовок"
   "Body": "Описание"
@@ -58,6 +58,9 @@ ru:
       criterion_request:
         criterion: "Критерий"
         value: "Значение"
+      danger_request:
+        danger: "Риск"
+
       user:
         email: Электронная почта
         password: Пароль

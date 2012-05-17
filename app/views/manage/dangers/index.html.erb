@@ -16,10 +16,10 @@
 <% @dangers.each do |danger| %>
   <tr class='<%= cycle('even', 'odd') %>'>
         
-    <td id='title'><%= link_to danger.title, danger %></td>
+    <td id='title'><%= link_to danger.title, manage_danger_path(danger) %></td>
     <% if can? :all, Danger %>
-      <td id="edit"><%= link_to t('Edit'), edit_danger_path(danger) %></td>
-      <td id="destroy"><%= link_to t('Destroy'), danger, confirm: t('Are you sure?'), method: :delete %></td>
+      <td id="edit"><%= link_to t('Edit'), edit_manage_danger_path(danger) %></td>
+      <td id="destroy"><%= link_to t('Destroy'), manage_danger_path, confirm: t('Are you sure?'), method: :delete %></td>
     <% end %>
 
   </tr>

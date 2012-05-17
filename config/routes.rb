@@ -2,14 +2,15 @@ Decision::Application.routes.draw do
 
   
   devise_for :users
-  
-  resources :dangers, :only => [:index, :show]
-  
+    
   resources :criterions
+  
+  resources :dangers
   
   resources :tasks, :only => [:index, :show] do
     resources :requests  do
       resources :criterion_requests 
+      resources :danger_requests
     end
   end
   
