@@ -12,28 +12,6 @@
 
 </div>
 
-<div class="sidebar">
-  <ol>
-    <h4><%=t("Criterions")%></h4>
-    <% if @task.criterions.size.eql? 0 %>
-       <i><h5>Нет связаных критериев</h5></i>
-    <% else %>
-      <% @task.criterions.each do |criterion| %>
-          <li><%= link_to criterion.title, criterion %></li>
-      <% end %>
-    <% end %>
-  </ol>
-  
-  <ol>
-    <h4><%=t("Dangers")%></h4>
-    <% if @task.dangers.size.eql? 0 %>
-       <i><h5>Нет связаных рисков</h5></i>
-    <% else %>
-      <% @task.dangers.each do |danger| %>
-          <li><%= link_to danger.title, danger %></li>
-      <% end %>
-    <% end %>
-  </ol>
-</div>
+
 
 

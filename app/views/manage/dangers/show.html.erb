@@ -16,17 +16,5 @@
 <%= link_to t('Back'), manage_dangers_path, :class => 'button light' %>
 </div>
 
-<div class="sidebar">
-  <ol>
-    <h4><%=t("Tasks")%></h4>
-    <% if @danger.tasks.size.eql? 0 %>
-       <i><h5>Нет связанных задач</h5></i>
-    <% else %>
-      <% @danger.tasks.each do |task| %>
-        <li><%= link_to task.title, task %></li>
-      <% end %> 
-    <% end %> 
-  </ol>
-</div>
 
 

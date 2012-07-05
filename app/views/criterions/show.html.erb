@@ -25,16 +25,6 @@
     <% end %>  
   </ol>
   
-  <ol>
-    <h4><%=t("Tasks")%></h4>
-    <% if @criterion.tasks.size.eql? 0 %>
-       <i><h5>Нет связанных задач</h5></i>
-    <% else %>
-      <% @criterion.tasks.each do |task| %>
-        <li><%= link_to task.title, task %></li>
-      <% end %> 
-    <% end %> 
-  </ol>
 </div>
 
 

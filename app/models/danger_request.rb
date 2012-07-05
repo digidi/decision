@@ -5,6 +5,9 @@ class DangerRequest < ActiveRecord::Base
   belongs_to :danger
   belongs_to :request
   
+  validates_presence_of :danger_id
+  validates_uniqueness_of :danger_id
+  
     
   has_many :aftermaths, :dependent => :destroy
   

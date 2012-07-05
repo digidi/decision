@@ -1,6 +1,6 @@
 <%= semantic_nested_form_for [@task, @request, @danger_request] do |f| %>
   
-  <%= f.input :danger, :collection => @task.dangers %>   
+  <%= f.input :danger, :collection => Danger.all %>   
   
    <div class='danger_aftermath_fields'>
     <%= f.fields_for :aftermaths, :html => {  } do |aftermath_form| %>

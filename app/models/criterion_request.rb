@@ -5,5 +5,8 @@ class CriterionRequest < ActiveRecord::Base
   belongs_to :criterion
   belongs_to :request
   
+  validates_presence_of :criterion_id
+  validates_uniqueness_of :criterion_id
+  
 
 end

@@ -1,6 +1,6 @@
 <%= semantic_form_for [@task, @request, @criterion_request] do |f| %>
   
-  <%= f.input :criterion, :collection => @task.criterions %>   
+  <%= f.input :criterion, :collection => Criterion.all %>   
   
   <%= f.input :value, :as => :string %><br />
   
