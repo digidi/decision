@@ -12,14 +12,19 @@ SimpleNavigation::Configuration.run do |navigation|
                  :highlights_on => /^\/$|criterions/
                  
     primary.item :manage_category,
-                 'Категории',
+                 'Категории критериев',
                  manage_categories_path,
                  :highlights_on => /^\/$|categories/
+                 
+    primary.item :manage_categorydanger,
+                 'Категории рисков',
+                 manage_categorydangers_path,
+                 :highlights_on => /^\/$|categorydangers/
                  
     primary.item :manage_danger,
                  'Риски',
                  manage_dangers_path,
-                 :highlights_on => /^\/$|dangers/
+                 :highlights_on => /^[a-z]+$|\/dangers/
 end
 end
 

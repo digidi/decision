@@ -1,0 +1,16 @@
+<% if Categorydanger.all.size.eql? 0 %>
+   <i><h4>Нет категорий</h4></i>
+<% else %>
+
+<table id='tablecat'>
+  <tr>
+
+
+<%= nested_categorydangers @categorydangers.arrange(:order => :title) %>
+
+
+  </tr>
+
+</table>
+<% end %>
+

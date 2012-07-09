@@ -1,0 +1,34 @@
+<div class="content">
+
+<p><h3><%= @categorydanger.title %></h3></p>
+
+<p>
+  <h4><%=t("Body")%></h4>
+  <% if @categorydanger.body.eql? ""%>
+    <i><%=t("Нет описания")%></i> 
+  <% else %>
+    <%= @categorydanger.body %>
+  <% end %>
+</p>
+<% if can? :all, Category %>
+  <%= link_to t('Edit'), edit_manage_categorydanger_path(@categorydanger), :class => 'button spade' %>
+<% end %>  
+<%= link_to t('Back'), manage_categorydangers_path, :class => 'button light' %>
+
+</div>
+
+<div class="sidebar">
+  <ol>
+    <h4><%=t("Dangers")%></h4>
+    <% if @categorydanger.dangers.size.eql? 0 %>
+       <i><h5>Нет связаных рисков</h5></i>
+    <% else %>
+      <% @categorydanger.dangers.each do |danger| %>
+        <li><%= link_to danger.title, manage_danger_path(danger) %></li>
+      <% end %>
+    <% end %>
+     
+  </ol>
+</div>
+
+

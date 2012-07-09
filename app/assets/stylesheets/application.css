@@ -244,6 +244,14 @@ li ol, li ul {
   margin-left: 0;
 }
 
+.nested_categorydangers {
+  margin-left: 30px;
+}
+
+.nested_categorydangers .nested_categorydangers .nested_categorydangers .nested_categorydangers {
+  margin-left: 0;
+}
+
 #show{
   width: 70px;
 }

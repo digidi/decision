@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
   end
   
   def index 
-    @categories = Category.paginate(:page => params[:page], :order => 'title')
+    @categories = Category.ordered_by_ancestry.order("title")
   end
     
 end

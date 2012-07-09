@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120516100346) do
+ActiveRecord::Schema.define(:version => 20120706064835) do
 
   create_table "aftermaths", :force => true do |t|
     t.text     "aftermath"
@@ -38,6 +38,24 @@ ActiveRecord::Schema.define(:version => 20120516100346) do
   add_index "categories_criterions", ["category_id"], :name => "index_categories_criterions_on_categories_id"
   add_index "categories_criterions", ["criterion_id"], :name => "index_categories_criterions_on_criterion_id"
 
+  create_table "categorydangers", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "ancestry"
+  end
+
+  add_index "categorydangers", ["ancestry"], :name => "index_categorydangers_on_ancestry"
+
+  create_table "categorydangers_dangers", :id => false, :force => true do |t|
+    t.integer "categorydanger_id"
+    t.integer "danger_id"
+  end
+
+  add_index "categorydangers_dangers", ["categorydanger_id"], :name => "index_categorydangers_dangers_on_categorydangers_id"
+  add_index "categorydangers_dangers", ["danger_id"], :name => "index_categorydangers_dangers_on_danger_id"
+
   create_table "criterions", :force => true do |t|
     t.string   "title"
     t.string   "body"
@@ -54,14 +72,6 @@ ActiveRecord::Schema.define(:version => 20120516100346) do
     t.datetime "updated_at",   :null => false
   end
 
-  create_table "criterions_tasks", :id => false, :force => true do |t|
-    t.integer "criterion_id"
-    t.integer "task_id"
-  end
-
-  add_index "criterions_tasks", ["criterion_id"], :name => "index_criterions_tasks_on_criterion_id"
-  add_index "criterions_tasks", ["task_id"], :name => "index_criterions_tasks_on_task_id"
-
   create_table "dangers", :force => true do |t|
     t.string   "title"
     t.string   "body"
@@ -75,14 +85,6 @@ ActiveRecord::Schema.define(:version => 20120516100346) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "dangers_tasks", :id => false, :force => true do |t|
-    t.integer "danger_id"
-    t.integer "task_id"
-  end
-
-  add_index "dangers_tasks", ["danger_id"], :name => "index_dangers_tasks_on_danger_id"
-  add_index "dangers_tasks", ["task_id"], :name => "index_dangers_tasks_on_task_id"
 
   create_table "levels", :force => true do |t|
     t.integer  "criterion_id"

@@ -1,0 +1,9 @@
+
+<h3><%= (@categorydanger.parent.title + " -> Новая категория") if @categorydanger.parent %></h3>
+
+  <%= render 'form' %>
+
+<td id='bodycat'><%= @categorydanger.body %></td>
+<td id='criterioncat'><% @categorydanger.dangers.each do |danger| %>
+   <%= danger.title %><br />
+<% end %></td>

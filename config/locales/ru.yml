@@ -17,6 +17,7 @@ ru:
   "Roles": "Роли"
   "Add": "+ категория"
   "New category": "Добавить категорию"
+  "New categorydanger": "Добавить категорию"
   "New danger": "Добавить риск"
   "Dangers": "Риски"
   
@@ -37,6 +38,10 @@ ru:
         title: "Заголовок"
         body: "Описание"
         criterions: "Связаные критерии"
+      categorydanger:
+        title: "Заголовок"
+        body: "Описание"
+        dangers: "Связаные риски"
       criterion:
         title: "Заголовок"
         body: "Описание"
@@ -52,6 +57,7 @@ ru:
         aftermath: "Последствие риска"
         tasks: "Связаные задачи"
         probability: "Вероятность наступления"
+        categorydangers: "Принадлежит следующим категориям"
       request:
         title: "Заголовок"
         body: "Описание"

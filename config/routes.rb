@@ -18,6 +18,7 @@ Decision::Application.routes.draw do
   match '/users/:id' => 'users#index'
   
   resources :categories, :only => [:index, :show]
+  resources :categorydangers, :only => [:index, :show]
   
   root :to => 'tasks#index'
   
@@ -33,6 +34,8 @@ Decision::Application.routes.draw do
     match '/users/:id' => 'users#index'
   
     resources :categories
+    
+    resources :categorydangers
   
     root :to => 'tasks#index'
 
