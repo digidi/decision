@@ -2,6 +2,7 @@
 <table>
   <tr>
     <th><%=t("Id")%></th>
+    <th><%=t("ФИО")%></th>
     <th><%=t("e-mail")%></th>
     <th><%=t("Roles")%></th>
     <th></th>
@@ -12,6 +13,7 @@
 <% @users.each do |user| %>
   <tr class='<%= cycle('even', 'odd') %>'>
     <td><%= user.id %></td>
+    <td><%= link_to user.fio, user_path(user) %></td>
     <td><%= user.email %></td>
     <td>
       <% if user.roles.any? %>

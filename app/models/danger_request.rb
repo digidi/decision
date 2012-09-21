@@ -6,12 +6,9 @@ class DangerRequest < ActiveRecord::Base
   belongs_to :request
   
   validates_presence_of :danger_id
-  validates_uniqueness_of :danger_id
+  validates_uniqueness_of :danger_id, :scope => :request_id
   
-    
-  has_many :aftermaths, :dependent => :destroy
+  has_many :danger_request_users
+  has_many :users, :through => :danger_request_users
   
-  accepts_nested_attributes_for :aftermaths, :reject_if => lambda { |a| a  [:aftermath].blank? }, :allow_destroy => true
-  
-
 end

@@ -3,6 +3,8 @@
   <%= f.input :title %>   
   <%= f.input :body, :as => :text %>   
   
+  <%= f.input :tasks, :as => :check_boxes %> 
+  
   <%= f.input :categorydangers,
               :as => :check_boxes,
               :member_label => ->(c) { ('--' * c.depth + c.title).html_safe } %>

@@ -1,0 +1,6 @@
+<h3><%= @user.fio %></h3>
+<% if @user.description.blank? %>
+<% else %>
+  <h4>Информация: </h4>
+  <%= @user.description %>
+<% end %>

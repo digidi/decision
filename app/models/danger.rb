@@ -4,6 +4,7 @@ class Danger < ActiveRecord::Base
   validates_uniqueness_of :title
 
   has_and_belongs_to_many :categorydangers
+  has_and_belongs_to_many :tasks
 
   
   has_many :danger_requests

@@ -1,0 +1,10 @@
+
+<% @danger_request.danger_request_users.each do |danger_request_user| %>
+  <%= User.where(:id => danger_request_user.id).map {|user| user.fio} %>
+  <%= danger_request_user.value %>
+  <% danger_request_user.aftermaths.each do |aftermath| %>
+     <li><%= aftermath.aftermath %></li><br />
+  <% end %>
+  <br />  
+<% end %>
+

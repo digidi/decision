@@ -1,3 +1,10 @@
+<% if @user.roles.exclude? "expert" %>
 
 <%= render 'form' %>
+
+<% else %>
+
+<%= render 'formexpert' %>
+
+<% end %>
 

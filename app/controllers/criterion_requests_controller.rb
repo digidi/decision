@@ -8,6 +8,12 @@ class CriterionRequestsController < ApplicationController
     belongs_to :request
   end
   
+  def update
+    update! do |success, failure|
+      success.html { redirect_to task_request_path(@task, @request) }
+    end
+  end
+  
   def create
     create! do |success, failure|
       success.html { redirect_to task_request_path(@task, @request) }
@@ -19,6 +25,12 @@ class CriterionRequestsController < ApplicationController
       success.html { redirect_to task_request_path(@task, @request) }
     end
   end
+  
+
+  
+
+  
+   
 
   
 end

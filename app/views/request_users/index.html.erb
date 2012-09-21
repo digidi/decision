@@ -1,0 +1,8 @@
+
+<% @users.each do |user| %>
+  <%= link_to user.email, new_task_request_request_user_path(@task, @request) %>
+  <%= user.id %>
+  
+   <br />
+<% end %>
+

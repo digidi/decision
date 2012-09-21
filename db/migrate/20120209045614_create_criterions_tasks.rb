@@ -1,5 +1,5 @@
 class CreateCriterionsTasks < ActiveRecord::Migration
-    create_table "criterions_tasks", :id => false, :force => true do |t|
+    create_table "criterions_tasks", :force => true do |t|
       t.integer "criterion_id"
       t.integer "task_id"
     end

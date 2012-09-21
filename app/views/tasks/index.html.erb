@@ -1,21 +1,43 @@
-<% if Task.all.size.eql? 0 %>
-  <i><h4>Нет задач</h4></i>
+
+<% if current_user.roles.exclude? "expert" %> 
+  <% if Task.all.size.eql? 0 %>
+    <i><h4>Нет задач</h4></i>
+  <% else %>
+    <table>
+      <tr>
+        <th><%=t("Название класса")%></th>   
+      </tr>
+
+    <% @tasks.each do |task| %>
+      <tr class='<%= cycle('even', 'odd') %>'>
+        <td id='title'><%= link_to task.title, task_path(task) %></td>
+      </tr>
+    <% end %>
+    </table>
+  <% end %>
 <% else %>
 <table>
-  <tr>
-    <th><%=t("Название класса")%></th>   
+<tr>
+    <th><%=t("Название задачи")%></th> 
+    <th><%=t("Класс задачи")%></th> 
+    <th><%=t("Инициатор задачи")%></th>  
   </tr>
-
-<% @tasks.each do |task| %>
-  <tr class='<%= cycle('even', 'odd') %>'>
-    <td id='title'><%= link_to task.title, task_path(task) %></td>
-  </tr>
+  
+<% current_user.request_users.each do |request_user| %>
+  <% Request.all.each do |request| %>
+    <% if request.id ==  request_user.request_id %>
+    <tr class='<%= cycle('even', 'odd') %>'>
+      <td id='title'><%= link_to request.title, task_request_path(request.task_id, request) %></td>
+      <% Task.where(:id=>request.task_id).each do |task| %>
+        <td id='title'><%= link_to task.title , task_path(request.task_id) %></td>
+      <% end %>
+      <% User.where(:id=>request.user_id).each do |user| %>
+        <td id='title'><%= link_to user.fio , user_path(request.user_id) %></td>
+      <% end %>
+    </tr>
+    <% end %>
+  <% end %>
 <% end %>
-</table>
+</table>  
 <% end %>
-
-
-
-
-
 

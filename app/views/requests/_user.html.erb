@@ -1,0 +1,70 @@
+<div class="tableexpert">
+<h4>Эксперты</h4> 
+<table>
+  <tr>
+    <th id="TRtitle">ФИО эксперта</th>
+    <th>Коментарий</th>
+    <th></th>
+  </tr>
+<% @request.request_users.each do |request_user| %>
+  <tr class='cr_re'> 
+    <td><%= link_to User.find_by_id(request_user.user_id).fio, user_path(request_user.user_id) %></td>
+    <% if request_user.value.nil? %>
+      <td class="red_text"><%= "Нет коментария" %></td>
+    <% else %>
+      <td class="green"><%= link_to "Есть коментарий", task_request_request_user_path(@task, @request, request_user) %></td>
+    <% end %>
+    <td id="destroy"><%= link_to t('Destroy'), task_request_request_user_path(@task, @request, request_user), confirm: t('Are you sure?'), method: :delete %></td>
+  </tr>
+<% end %>
+ </table>
+
+<%= link_to 'Добавить эксперта',  new_task_request_request_user_path(@task, @request), :class => 'button spade' %><br />
+</div>
+
+<% if @request.criterions.size.eql? 0 %>
+  <h4>Критерии не определены</h4>
+<% else %>
+  <h4>Список критериев</h4> 
+  <table class="tablerequest">
+  <tr>
+    <th id="TRtitle">Название</th>
+    <th>Среднее значение</th>
+    <th></th>
+  </tr>
+    <% @request.criterion_requests.each do |criterion_request| %>
+      <tr class='cr_re'>  
+        <td><%= link_to Criterion.find_by_id(criterion_request.criterion_id).title, task_request_criterion_request_path(@task, @request, criterion_request) %></td>
+        <td><%= criterion_request.criterion_request_users.sum('value') %></td>
+        <td id="destroy"><%= link_to t('Destroy'), task_request_criterion_request_path(@task, @request, criterion_request), confirm: t('Are you sure?'), method: :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<%= link_to t('Добавить критерий'), new_task_request_criterion_request_path(@task, @request), :class => 'button spade' %><br /><br /><br />
+
+<% if @request.dangers.size.eql? 0 %>
+  <h4>Риски не определены</h4>
+<% else %>
+  <h4>Список рисков</h4> 
+  <table class="tablerequest">
+    <tr>
+    <th id="TRtitle">Название</th>
+    <th>Последствия</th>
+    <th></th>
+  </tr>
+    <% @request.danger_requests.each do |danger_request| %>
+      <tr class='cr_re'>  
+        <td><%= link_to Danger.find_by_id(danger_request.danger_id).title, task_request_danger_request_path(@task, @request, danger_request) %></td>
+        <td id="destroy"><%= link_to t('Destroy'), task_request_danger_request_path(@task, @request, danger_request), confirm: t('Are you sure?'), method: :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+
+<%= link_to t('Добавить риск'), new_task_request_danger_request_path(@task, @request), :class => 'button spade' %>
+
+<%= link_to t('Back'), task_path(@task), :class => 'button light' %>
+

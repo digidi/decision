@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120706064835) do
+ActiveRecord::Schema.define(:version => 20120823055533) do
 
   create_table "aftermaths", :force => true do |t|
     t.text     "aftermath"
-    t.integer  "danger_request_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.integer  "danger_request_user_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
   create_table "categories", :force => true do |t|
@@ -67,10 +67,25 @@ ActiveRecord::Schema.define(:version => 20120706064835) do
   create_table "criterions_requests", :force => true do |t|
     t.integer  "criterion_id"
     t.integer  "request_id"
-    t.string   "value"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  create_table "criterions_requests_users", :force => true do |t|
+    t.integer  "criterion_request_id"
+    t.integer  "user_id"
+    t.string   "value"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  create_table "criterions_tasks", :force => true do |t|
+    t.integer "criterion_id"
+    t.integer "task_id"
+  end
+
+  add_index "criterions_tasks", ["criterion_id"], :name => "index_criterions_tasks_on_criterion_id"
+  add_index "criterions_tasks", ["task_id"], :name => "index_criterions_tasks_on_task_id"
 
   create_table "dangers", :force => true do |t|
     t.string   "title"
@@ -85,6 +100,22 @@ ActiveRecord::Schema.define(:version => 20120706064835) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "dangers_requests_users", :force => true do |t|
+    t.integer  "danger_request_id"
+    t.integer  "user_id"
+    t.text     "value"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "dangers_tasks", :id => false, :force => true do |t|
+    t.integer "danger_id"
+    t.integer "task_id"
+  end
+
+  add_index "dangers_tasks", ["danger_id"], :name => "index_dangers_tasks_on_danger_id"
+  add_index "dangers_tasks", ["task_id"], :name => "index_dangers_tasks_on_task_id"
 
   create_table "levels", :force => true do |t|
     t.integer  "criterion_id"
@@ -101,6 +132,12 @@ ActiveRecord::Schema.define(:version => 20120706064835) do
     t.string   "method"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "requests_users", :force => true do |t|
+    t.integer "user_id"
+    t.integer "request_id"
+    t.text    "value"
   end
 
   create_table "tasks", :force => true do |t|
@@ -124,6 +161,8 @@ ActiveRecord::Schema.define(:version => 20120706064835) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.integer  "roles_mask"
+    t.string   "fio"
+    t.text     "description"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

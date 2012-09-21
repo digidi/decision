@@ -1,67 +1,41 @@
-<div class="content">
+<% if @user.roles.exclude? "expert" %>
 
 <p><h3><%= link_to @request.title, edit_task_request_path(@task, @request)  %></h3></p>
 
-<p>
+<div class='textbody'>
   <h4><%=t("Body")%></h4>
   <% if @request.body.eql? ""%>
     <i><%=t("Нет описания")%></i> 
   <% else %>
     <%= @request.body %>
   <% end %>
-</p>
-
-<% if @request.criterions.size.eql? 0 %>
-  <h4>Критерии не определены</h4>
-<% else %>
-  <h4>Список критериев</h4> 
-  <table class="tablerequest">
-  <tr>
-    <th id="TRtitle">Название</th>
-    <th>Значение</th>
-    <th></th>
-  </tr>
-    <% @request.criterion_requests.each do |criterion_request| %>
-      <tr class='cr_re'>  
-        <td><%= link_to Criterion.find_by_id(criterion_request.criterion_id).title, edit_task_request_criterion_request_path(@task, @request, criterion_request) %></td>
-        <td><%= criterion_request.value %></td>
-        <td id="destroy"><%= link_to t('Destroy'), task_request_criterion_request_path(@task, @request, criterion_request), confirm: t('Are you sure?'), method: :delete %></td>
-      </tr>
-    <% end %>
-  </table>
-<% end %>
-
-<%= link_to t('Добавить критерий'), new_task_request_criterion_request_path(@task, @request), :class => 'button spade' %><br /><br />
-
-<% if @request.dangers.size.eql? 0 %>
-  <h4>Риски не определены</h4>
-<% else %>
-  <h4>Список рисков</h4> 
-  <table class="tablerequest">
-    <tr>
-    <th id="TRtitle">Название</th>
-    <th>Последствия</th>
-    <th></th>
-  </tr>
-    <% @request.danger_requests.each do |danger_request| %>
-      <tr class='cr_re'>  
-        <td><%= link_to Danger.find_by_id(danger_request.danger_id).title, edit_task_request_danger_request_path(@task, @request, danger_request) %></td>
-        <td><ol><% danger_request.aftermaths.each do |aftermath| %>
-          <li><%= aftermath.aftermath %></li><br />
-        <% end %>
-        </ol></td>
-        <td id="destroy"><%= link_to t('Destroy'), task_request_danger_request_path(@task, @request, danger_request), confirm: t('Are you sure?'), method: :delete %></td>
-      </tr>
-    <% end %>
-  </table>
-<% end %>
-
-
-<%= link_to t('Добавить риск'), new_task_request_danger_request_path(@task, @request), :class => 'button spade' %>
-
-<%= link_to t('Back'), task_requests_path(@task), :class => 'button light' %>
 </div>
 
+<%= render 'user' %>
+
+<% else %>
+
+<p><h3><%= @request.title %></h3></p>
+
+<div class='textbody'>
+  <h4><%=t("Body")%></h4>
+  <% if @request.body.eql? ""%>
+    <i><%=t("Нет описания")%></i> 
+  <% else %>
+    <%= @request.body %>
+  <% end %>
 </div>
+<div class='textbody'>
+  <h4><%=t("Коментарий")%></h4>
+  <% if @request.request_users.find_by_user_id(current_user.id).value.blank? %>
+    <i><%= link_to ("Нет коментария"), edit_task_request_request_user_path(@task, @request, @request.request_users.find_by_user_id(current_user.id)) %></i> 
+  <% else %>
+    <%= link_to @request.request_users.find_by_user_id(current_user.id).value, edit_task_request_request_user_path(@task, @request, @request.request_users.find_by_user_id(current_user.id)) %>
+  <% end %>
+</div>
+
+<%= render 'formexpert' %>
+
+<% end %>
 
 

@@ -1,6 +1,6 @@
 <%= semantic_form_for @task, :url => manage_task_path, :html => { :multipart => true } do |f| %>
 
-  <%= f.input :title %>   
+  <%= f.input :title %> 
   <%= f.input :body, :as => :text %>   
    
   <%= f.action :submit, :as => :button, :button_html => { :class => 'button spade'} %>

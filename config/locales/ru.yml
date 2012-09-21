@@ -13,7 +13,7 @@ ru:
   "Back": "Назад"
   "New Criterion": "Добавить критерий"
   "New Task": "Добавить задачу"
-  "Are you sure?": "Вы уверенны?"
+  "Are you sure?": "Вы уверены?"
   "Roles": "Роли"
   "Add": "+ категория"
   "New category": "Добавить категорию"
@@ -63,6 +63,8 @@ ru:
         body: "Описание"
       criterion_request:
         criterion: "Критерий"
+        value: "Значение"
+      criterion_request_user:
         value: "Значение"
       danger_request:
         danger: "Риск"

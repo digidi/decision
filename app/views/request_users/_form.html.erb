@@ -1,0 +1,21 @@
+<%= semantic_form_for [@task, @request, @request_user] do |f| %>
+  
+  <h3><%= "Задача" %></h3>
+  <h4><%= @request.title %></h4>
+  <% if current_user.roles.exclude? "expert" %> 
+  
+    <%= f.input :user, :collection => Hash[ User.where( :roles_mask => (4..7)).map { |user|  [user.fio, user.id] } ]  %>
+  <% else %>
+  
+    <%= f.input :value %>   
+  
+  <% end %>
+  
+  <%= f.action :submit, :as => :button, :button_html => { :class => 'button spade'} %>
+  <%= f.action :cancel, :as => :link, :button_html => { :class => 'button light'} %> 
+  
+<% end %>
+
+
+
+

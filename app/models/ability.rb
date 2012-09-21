@@ -11,19 +11,25 @@ class Ability
     
     can :manage, DangerRequest
     can :manage, CriterionRequest
+    can :manage, RequestUser
     # End #
     
     can :manage, :all if user.is? :admin
+    
+    if user.is? :moderator
+      can :manage, Criterion
+      can :manage, Danger
+      can :manage, Task
+      can :manage, Category      
+    end
+    
+    if user.is? :expert
+      can :manage, Request
+      can :manage, CriterionRequestUser, :user_id => user.id
+      can :create, CriterionRequestUser
+    end
         
     can :manage, Request, :user_id => user.id
-    
-    can :manage, Criterion if user.is? :criterionmkr
-    
-    can :manage, Danger if user.is? :dangermkr
-    
-    can :manage, Task if user.is? :taskmkr
-    
-    can :manage, Category if user.is? :categorymkr
     
     can :edit, :update, User do | user |
       user = @user

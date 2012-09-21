@@ -1,0 +1,63 @@
+<%= semantic_form_for [@task, @request] do |f| %>
+
+<h4>Эксперты</h4> 
+<% @request.request_users.each do |request_user| %>
+  <h5><%= link_to User.find_by_id(request_user.user_id).fio, user_path(request_user.user_id) %></h5>
+<% end %>
+
+<% if @request.criterions.size.eql? 0 %>
+  <h4>Критерии не определены</h4>
+<% else %>
+  <h4>Список критериев</h4> 
+  <table class="tablerequest">
+  <tr>
+    <th id="TRtitle">Название</th>
+    <th>Ваше значение</th>
+    <th>Срднее значение</th>
+  </tr>
+       <% @request.criterion_requests.each do |criterion_request| %>
+       <tr class='cr_re'>
+       <% if cr_value = criterion_request.criterion_request_users.find_by_user_id(current_user.id) %>
+        <td><%= link_to criterion_request.criterion.title, edit_task_request_criterion_request_criterion_request_user_path(@task, @request, criterion_request, criterion_request.criterion_request_users.find_by_user_id(current_user.id)) %></td>
+        <td><%= cr_value.value %></td>
+        <td><%= criterion_request.criterion_request_users.sum('value') %></td> 
+        </tr>
+        <% else %>
+        <td><%= link_to criterion_request.criterion.title, new_task_request_criterion_request_criterion_request_user_path(@task, @request, criterion_request) %></td>
+        <td></td>
+        <td><%= criterion_request.criterion_request_users.sum('value') %></td> 
+        </tr>
+        <% end %> 
+       <% end %>        
+  </table>
+<% end %>
+
+<% if @request.dangers.size.eql? 0 %>
+  <h4>Риски не определены</h4>
+<% else %>
+  <h4>Список рисков</h4> 
+  <table class="tablerequest">
+  <tr>
+    <th id="TRtitle">Название</th>
+    
+
+  </tr>
+    <% @request.danger_requests.each do |danger_request| %>
+      <tr class='cr_re'>  
+        <% if dn_value = danger_request.danger_request_users.find_by_user_id(current_user.id) %>
+        <td><%= link_to danger_request.danger.title, edit_task_request_danger_request_danger_request_user_path(@task, @request, danger_request) %></td>
+        <td><%= dn_value.value %></td>
+        <td><%= danger_request.danger_request_users.sum('value') %></td> 
+        </tr>
+        <% else %>
+        <td><%= link_to danger_request.danger.title, new_task_request_danger_request_danger_request_user_path(@task, @request, danger_request) %></td>
+        <td></td>
+        <td><%= danger_request.danger_request_users.sum('value') %></td> 
+        </tr>
+        <% end %> 
+       <% end %>     
+<% end %>
+
+<%= link_to t('Back'), task_path(@task), :class => 'button light' %>
+
+<% end %>

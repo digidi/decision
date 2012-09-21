@@ -1,0 +1,6 @@
+<% @criterion_request.criterion_request_users.each do |criterion_request_user| %>
+  <%= User.find_by_id(criterion_request_user.user_id).fio %>
+  <%= criterion_request_user.value %>
+  <br />  
+<% end %>
+

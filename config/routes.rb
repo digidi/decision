@@ -1,21 +1,26 @@
 Decision::Application.routes.draw do
-
   
   devise_for :users
+  resources :users, :only => [:index, :show, :edit, :update]
+  match '/users/:id' => 'users#index'
     
   resources :criterions
   
   resources :dangers
   
   resources :tasks, :only => [:index, :show] do
-    resources :requests  do
-      resources :criterion_requests 
-      resources :danger_requests
+    resources :requests, :except => [:index] do
+      resources :criterion_requests, :except => [:edit] do
+        resources :criterion_request_users
+        end
+      resources :danger_requests, :except => [:edit] do
+        resources :danger_request_users
+        end
+      resources :request_users
+      #resources :experts #, :except => [:index]
+     # resources :expert_users
     end
   end
-  
-  resources :users, :only => [:index, :edit, :update]
-  match '/users/:id' => 'users#index'
   
   resources :categories, :only => [:index, :show]
   resources :categorydangers, :only => [:index, :show]
@@ -30,7 +35,7 @@ Decision::Application.routes.draw do
   
     resources :tasks
   
-    resources :users, :only => [:index, :edit, :update]
+    resources :users, :only => [:index, :show, :edit, :update]
     match '/users/:id' => 'users#index'
   
     resources :categories

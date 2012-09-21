@@ -1,0 +1,10 @@
+<%= semantic_form_for [@task, @request, @criterion_request, @criterion_request_user] do |f| %>   
+
+  <h3><%= @criterion_request.criterion(:criterion_id).title %></h3>   
+  
+  <%= f.input :value, :as => :string %><br />
+  
+  <%= f.action :submit, :as => :button, :button_html => { :class => 'button spade'} %>
+  <%= f.action :cancel, :as => :link, :button_html => { :class => 'button light'} %> 
+  
+<% end %>

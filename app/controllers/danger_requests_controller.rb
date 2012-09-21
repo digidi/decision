@@ -8,13 +8,7 @@ class DangerRequestsController < ApplicationController
     belongs_to :request
   end
   
-  def new
-     @danger_request = DangerRequest.new
-      1.times do
-        aftermath = @danger_request.aftermaths.build
-      end 
-   end  
-  
+ 
   def create
     create! do |success, failure|
       success.html { redirect_to task_request_path(@task, @request) }
